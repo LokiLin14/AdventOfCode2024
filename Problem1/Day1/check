@@ -1,0 +1,31 @@
+#/bin/bash
+
+# Description : This script runs $1 against in1 in2 .. matching them against cor1 cor2 .. 
+# Usage : ./check (program to check) (directory where input and output data is stored)
+
+dir=$2
+
+for(( i=0; ; i++)) 
+do
+    if [ ! -f "$2in$i" ]
+    then 
+        break
+    fi
+
+    out=$(mktemp)
+    ./$1 < $2in$i > $out
+
+    diff=$(diff $out $2cor$i -Z -b -B)
+    if [ "$diff" != "" ];
+    then
+        echo -e "test case $i failed X \ninput:"
+        cat "$2in$i"
+        echo -e "correct:"
+        cat "$2cor$i"
+        echo -e "output:"
+        cat "$out"
+        echo -e "\n"
+    else 
+        echo "test case $i passed O"
+    fi
+done

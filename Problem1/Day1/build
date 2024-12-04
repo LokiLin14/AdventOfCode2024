@@ -1,0 +1,2 @@
+#!/bin/sh 
+g++ -Wfatal-errors -g -fsanitize=address -Wall -Wshadow -DLOC $*

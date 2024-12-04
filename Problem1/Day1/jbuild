@@ -1,0 +1,2 @@
+#!/bin/bash
+g++ -Wfatal-errors -g -fsanitize=address -Wall -Wshadow $*
