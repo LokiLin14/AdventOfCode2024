@@ -1,4 +1,4 @@
-use regex::{Regex, RegexSet, RegexSetBuilder};
+use regex::Regex;
 use std::io::Read;
 
 fn main() {
@@ -6,9 +6,9 @@ fn main() {
     std::io::stdin().lock().read_to_string(&mut string).unwrap();
     println!("Received string: {}", string);
 
-    let reMul = Regex::new(r"mul\(([0-9]+),([0-9]+)\)").unwrap();
+    let re_mul = Regex::new(r"mul\(([0-9]+),([0-9]+)\)").unwrap();
 
-    let sum = reMul
+    let sum = re_mul
         .captures_iter(&string)
         .map(|caps| {
             let a = caps[1].parse::<i32>().unwrap();
