@@ -1,0 +1,15 @@
+[package]
+name = "Problem7"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "Part1"
+path = "src/Part1.rs"
+
+[[bin]]
+name = "Part2"
+path = "src/Part2.rs"
+
+[dependencies]
+rand = "0.9.0-beta.1"
