@@ -23,7 +23,7 @@ fn pop_last_digits(mut target: i64, mut value: i64) -> Option<i64> {
 fn calc(str : &str) -> i64 {
     let strings = str.split_whitespace().collect::<Vec<_>>();
 
-    let mut num : i64 = 0;
+    let mut num : i64 = strings[0].parse().unwrap();
     let mut i = 1;
     while i < strings.len() {
         if strings[i] == "+" {
@@ -43,8 +43,11 @@ fn calc(str : &str) -> i64 {
 
 fn is_possible_expr(target: i64, array: &[i64]) -> Option<String> {
     if array.len() == 0 {
-        return if target == 0 {
-            Some(String::from("0"))
+        return None;
+    }
+    if array.len() == 1 {
+        return if array[0] == target {
+            Some(array[0].to_string())
         } else {
             None
         }

@@ -1,0 +1,14 @@
+[package]
+name = "Problem6"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "Part1"
+path = "src/Part1.rs"
+
+[[bin]]
+name = "Part2"
+path = "src/Part2.rs"
+
+[dependencies]
